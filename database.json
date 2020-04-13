@@ -1,13 +1,1 @@
-
-    [
-        {
-            "id": 2,
-            "todo": "go have lunch",
-            "status": "complete"
-        },
-        {
-            "id": 3,
-            "todo": "to do exercise",
-            "status": "complete"
-        }
-    ]
+[{"id":3,"todo":"to do exercise","status":"incomplete"},{"id":1,"todo":"go to bed","status":"incomplete"}]

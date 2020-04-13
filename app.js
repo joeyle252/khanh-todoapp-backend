@@ -65,6 +65,7 @@ yargs.command({
 
     handler: function (args) {
         addTodo(args.todo, args.status)
+        console.log(chalk.green("successfully add todo: ",args.todo))
     }
 })
 
@@ -81,7 +82,7 @@ yargs.command({
                     completeTodos.push(todos[index])
                 }
             }
-            console.log(completeTodos);
+            console.log(chalk.green("complete todos: ",JSON.stringify(completeTodos,null,2)));
         } else if (args._.includes("incomplete")) {
             const incompleteTodos = [];
             for (let index = 0; index < todos.length; index++) {
@@ -89,9 +90,11 @@ yargs.command({
                     incompleteTodos.push(todos[index])
                 }
             }
-            console.log(incompleteTodos);
+            console.log(chalk.green("incomplete todos: ",JSON.stringify(incompleteTodos,null,2)));
+
         } else {
-            console.log(todos)
+            console.log(chalk.green("todos: ",JSON.stringify(todos,null,2)));
+
         }
     }
 })
@@ -117,7 +120,8 @@ yargs.command({
             return true
         })
         fs.writeFileSync("database.json", JSON.stringify(newTodos))
-        console.log(newTodos)
+        console.log(chalk.green("new todos: ",JSON.stringify(newTodos,null,2)));
+
     } else if(args._.includes("all")){
         fs.writeFileSync("database.json", JSON.stringify([]))
         console.log([])
@@ -148,7 +152,8 @@ yargs.command({
             return todo
         })
         fs.writeFileSync("database.json", JSON.stringify(newTodos))
-        console.log(newTodos)
+        console.log(chalk.green("new todos: ",JSON.stringify(newTodos,null,2)));
+
     }
 })
 
